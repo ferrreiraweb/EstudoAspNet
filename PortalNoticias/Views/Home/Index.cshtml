@@ -1,0 +1,27 @@
+﻿@model IEnumerable<PortalNoticias.Models.Noticia>
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h3>Categorias</h3>
+
+<ul>
+    @foreach(string item in ViewBag.Categorias)
+    {
+        <li>@Html.ActionLink(item, "NoticiasPorCategoria", "Home", new { @categoria = item.ToLower() }, null)</li>
+    }
+</ul>
+
+<h3>Últimas Notícias</h3>
+
+@foreach(var item in Model)
+{
+    <div>
+        @Html.ActionLink(item.Titulo, "MostraNoticia", "Home", new {@NoticiaId = item.NoticiaId, @titulo = item.Titulo.ToLower(), @categoria = item.Categoria.ToLower()}, null)
+        <em>@item.Data</em> - <b>@Html.ActionLink(item.Categoria, "NoticiasPorCategoria", "Home", new { @categoria = item.Categoria.ToLower() }, null)</b>
+    </div>
+    <hr />
+}
+
+@Html.ActionLink("Todas as Noticias", "MostraTodasAsNoticias", "Home");

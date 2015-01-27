@@ -1,0 +1,17 @@
+﻿@model IEnumerable<PortalNoticias.Models.Noticia>
+@{
+    ViewBag.Title = "MostraTodasAsNoticias";
+}
+
+<h3>Todas as Noticias</h3>
+
+@foreach (var item in Model)
+{
+    <div>
+        @Html.ActionLink(item.Titulo, "MostraNoticia", "Home", new { @NoticiaId = item.NoticiaId }, null)
+        <em>@item.Data</em> - <b>@item.Categoria</b>
+    </div>
+    <hr />
+}
+
+@Html.ActionLink("Retornar", "Index", "Home");

@@ -1,0 +1,22 @@
+﻿@model List<PortalNoticias.Models.Noticia>
+@{
+    ViewBag.Title = "NoticiasPorCategoria";
+}
+
+<h2>Noticias por Categoria</h2>
+<h3>@ViewBag.Categoria</h3>
+
+@foreach(var item in Model)
+{
+    
+    <div>
+        <b>Titulo:</b>@item.Titulo<br />
+        <b>Conteudo:</b>@item.Conteudo<br/>
+        <b>Data:</b>@item.Data<br />
+    </div>
+    <br />
+    <hr />
+    <br />
+    
+}
+

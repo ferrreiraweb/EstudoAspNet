@@ -1,0 +1,15 @@
+﻿@model PortalNoticias.Models.Noticia
+@{
+    ViewBag.Title = "MostraNoticia";
+}
+
+<h2>@Model.Titulo</h2>
+
+<div>
+    @Model.Conteudo
+</div>
+<em>@Model.Data</em><br />
+<b>@Html.ActionLink(Model.Categoria, "NoticiasPorCategoria", "Home", new { @categoria = Model.Categoria.ToLower() }, null)</b>
+<hr />
+
+@Html.ActionLink("Home", "Index", "Home")
